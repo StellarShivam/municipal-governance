@@ -144,6 +144,7 @@ exports.syncGoogleSheetData = async () => {
     console.log("✅ All sheets processed successfully!");
   } catch (error) {
     console.error("❌ Error syncing data:", error);
+    throw new Error(`Failed to sync Google Sheet data: ${error.message}`);
   }
 };
 
@@ -198,6 +199,7 @@ exports.syncGoogleSheetToPDF = async () => {
     );
   } catch (error) {
     console.error("❌ Error syncing data to PDF:", error);
+    throw new Error(`Failed to sync Google Sheet to PDF: ${error.message}`);
   }
 };
 

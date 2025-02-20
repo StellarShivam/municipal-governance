@@ -36,9 +36,18 @@ app.get("/api/sync", async (req, res) => {
   try {
     await dataFetchController.syncGoogleSheetData();
     // await dataFetchController.syncGoogleSheetToPDF();
-    res.status(200).send("✅ Google Sheet data synced.");
+    res
+      .status(200)
+      .json({ success: true, message: "✅ Google Sheet data synced." });
   } catch (error) {
-    res.status(500).send("❌ Error syncing data: " + error.message);
+    console.error("❌ Error syncing data:", error);
+
+    // Send detailed error response to frontend
+    res.status(500).json({
+      success: false,
+      message: "❌ Error syncing data",
+      error: error.message || "Unknown error occurred",
+    });
   }
 });
 
