@@ -1,5 +1,5 @@
 import React from "react";
-import SyncButton from "./components/syncButton";
+import SyncButton from "./components/SyncButton";
 
 const App = () => {
   return (
