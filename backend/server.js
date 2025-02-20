@@ -11,11 +11,13 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-cors({
-  origin: ["http://localhost:5173", "https://yourfrontend.com"],
-  methods: "GET,POST,PUT,DELETE",
-  allowedHeaders: "Content-Type,Authorization",
-});
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://yourfrontend.com"],
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+  })
+);
 
 // MongoDB Connection
 mongoose
