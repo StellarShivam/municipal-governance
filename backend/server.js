@@ -13,7 +13,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://yourfrontend.com"],
+    origin: [
+      "http://localhost:5173",
+      "https://municipalgovernance.netlify.app",
+    ],
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   })
