@@ -35,7 +35,7 @@ cron.schedule("0 18 * * *", dataFetchController.syncGoogleSheetData, {
 app.get("/api/sync", async (req, res) => {
   try {
     await dataFetchController.syncGoogleSheetData();
-    await dataFetchController.syncGoogleSheetToPDF();
+    // await dataFetchController.syncGoogleSheetToPDF();
     res.status(200).send("✅ Google Sheet data synced.");
   } catch (error) {
     res.status(500).send("❌ Error syncing data: " + error.message);
