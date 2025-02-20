@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Loader2, X } from "lucide-react";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Modal = ({ isOpen, onClose, isSuccess, message }) => {
   if (!isOpen) return null;
@@ -60,7 +61,7 @@ const SyncButton = () => {
   const handleSync = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/sync");
+      const response = await axios.get(`${BASE_URL}/api/sync`);
 
       console.log(response);
 
